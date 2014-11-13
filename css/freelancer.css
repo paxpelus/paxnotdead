@@ -475,6 +475,12 @@ footer .footer-below {
     font-size:12px;
 }
 
+.relative-minus-30
+{
+    position:relative;
+    top:-30px;
+}
+
 /* Bootstrap overrides */
 
 .btn-success
