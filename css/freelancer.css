@@ -483,6 +483,12 @@ footer .footer-below {
 
 /* Bootstrap overrides */
 
+.alert-success
+{
+    background-color:#A2A63C;
+    border-color:#A2A63C;
+}
+
 .btn-success
 {
     background:#A2A63C;
