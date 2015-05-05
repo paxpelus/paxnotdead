@@ -468,6 +468,17 @@ footer .footer-below {
     transform: rotate(90deg);
 }
 
+.what_can_do
+{
+    padding:0;
+    font-size:20px;
+}
+
+.what_can_do li
+{
+    margin-bottom:15px;
+}
+
 /* Helpers */
 
 .font-12
@@ -475,11 +486,24 @@ footer .footer-below {
     font-size:12px;
 }
 
+.font-16
+{
+    font-size:16px;
+}
+
+.font-20
+{
+    font-size:20px;
+}
+
 .relative-minus-30
 {
     position:relative;
     top:-30px;
 }
+
+.nopadding {padding:0;}
+
 
 /* Bootstrap overrides */
 
