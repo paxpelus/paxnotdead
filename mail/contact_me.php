@@ -19,6 +19,40 @@ $email_subject = "My Portfolio Contact Form:  $name";
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
 $headers = "From: noreply@paxnotdead.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";	
-mail($to,$email_subject,$email_body,$headers);
+//mail($to,$email_subject,$email_body,$headers);
+
+$uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
+
+$postString = [
+'key'=> '_ze17Fj-RAO4ON3eteriqg',
+'message'=> [
+    'text'=> $email_body,
+    'subject'=> $email_subject,
+    'from_email'=> 'noreply@paxnotdead.com',
+    'from_name'=> 'PaxNotDead',
+    'to'=> [
+        [
+            'email'=> $to
+        ]
+    ],
+    'track_opens'=> true,
+    'track_clicks'=> true,
+    'auto_text'=> true,
+    'url_strip_qs'=> true,
+    'preserve_recipients'=> true
+],
+'async'=> false
+];
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $uri);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postString));
+
+$result = curl_exec($ch);
+
 return true;			
 ?>
